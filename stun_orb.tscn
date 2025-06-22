@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgpieexgy6eqi"]
+
+[ext_resource type="Script" uid="uid://bu3olaaey78kq" path="res://stun_orb.gd" id="1_pgvcs"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_nhvqm"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gii0r"]
+
+[node name="StunOrb" type="Area3D"]
+script = ExtResource("1_pgvcs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.846475, 0, 0, 0, 0.846475, 0, 0, 0, 0.846475, 0, 0, 0)
+mesh = SubResource("SphereMesh_nhvqm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_gii0r")

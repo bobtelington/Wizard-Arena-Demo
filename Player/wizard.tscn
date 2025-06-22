@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b60akayl6328p"]
+
+[ext_resource type="PackedScene" uid="uid://c7utvht1a7y1l" path="res://Assets/Wizard16.glb" id="1_0isxx"]
+
+[node name="Wizard16" instance=ExtResource("1_0isxx")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/3/rotation = Quaternion(7.84013e-09, -9.36355e-10, 0.992944, 0.118588)
+bones/4/rotation = Quaternion(-7.84013e-09, -9.36355e-10, 0.992944, -0.118588)
