@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbdju4dvcwg43"]
+[gd_scene load_steps=5 format=3 uid="uid://cbdju4dvcwg43"]
 
-[ext_resource type="PackedScene" uid="uid://cul3r7pg5ai2v" path="res://Player/Nplayer.tscn" id="2_fj7yv"]
-[ext_resource type="PackedScene" uid="uid://b6gtwu3pfg7qb" path="res://enemy.tscn" id="2_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://yjf3ktqy6m51" path="res://Player/player.tscn" id="1_f3sb7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -40,7 +39,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8309, 0.644407, 0)
 use_collision = true
 size = Vector3(5, 2, 5)
 
-[node name="Enemy" parent="." instance=ExtResource("2_tlwt5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.36566, 1.03057, 0)
-
-[node name="Nplayer" parent="." instance=ExtResource("2_fj7yv")]
+[node name="Player" parent="." instance=ExtResource("1_f3sb7")]

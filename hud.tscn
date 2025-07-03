@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://5lij70fuxevn"]
+[gd_scene load_steps=4 format=3 uid="uid://5lij70fuxevn"]
 
 [ext_resource type="Texture2D" uid="uid://bqv022et7ouai" path="res://Assets/crosshair102.png" id="1_37p78"]
+[ext_resource type="Texture2D" uid="uid://ykq7wvvmf0ox" path="res://Assets/heart.png" id="2_64ctp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37p78"]
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -14,6 +17,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
+mouse_filter = 1
 
 [node name="TextureRect" type="TextureRect" parent="Crosshair"]
 custom_minimum_size = Vector2(64, 64)
@@ -30,3 +34,31 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_37p78")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 17.0
+offset_top = 22.0
+offset_right = 57.0
+offset_bottom = 62.0
+scale = Vector2(4.36, 1.52)
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_37p78")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = -0.458716
+offset_top = 2.63158
+offset_right = 63.5413
+offset_bottom = 66.6316
+scale = Vector2(0.209362, 0.552632)
+texture = ExtResource("2_64ctp")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 13.5321
+offset_top = 3.94737
+offset_right = 41.5321
+offset_bottom = 31.9474
+scale = Vector2(0.889908, 1.23684)
+text = "##"

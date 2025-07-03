@@ -8,8 +8,8 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hqtel"]
 height = 1.88224
 
-[node name="Player" type="CharacterBody3D"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 0, 0)
 script = ExtResource("1_btcbx")
 
 [node name="HUD" parent="." instance=ExtResource("2_gwnis")]

@@ -1,0 +1,140 @@
+[gd_scene load_steps=11 format=3 uid="uid://cul3r7pg5ai2v"]
+
+[ext_resource type="Script" uid="uid://l2lfhnh7fa46" path="res://Player/nplayer.gd" id="1_nlo8t"]
+[ext_resource type="Script" uid="uid://b58q46i12n1p3" path="res://Resources/player_stats.gd" id="2_nlo8t"]
+[ext_resource type="Script" uid="uid://dh1o3xy06yrtl" path="res://Player/camera_con.gd" id="3_8ajbe"]
+[ext_resource type="Texture2D" uid="uid://bqv022et7ouai" path="res://Assets/crosshair102.png" id="3_ryn1q"]
+[ext_resource type="Texture2D" uid="uid://ykq7wvvmf0ox" path="res://Assets/heart.png" id="4_eubj8"]
+
+[sub_resource type="Resource" id="Resource_nlo8t"]
+script = ExtResource("2_nlo8t")
+base_health = 100
+base_speed = 7.0
+jump_force = 5.0
+metadata/_custom_type_script = "uid://b58q46i12n1p3"
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hiuoe"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ded6v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ajbe"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_eubj8"]
+
+[node name="Nplayer" type="CharacterBody3D" node_paths=PackedStringArray("camera_controller", "cam") groups=["Player"]]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 0, 0)
+collision_layer = 2
+collision_mask = 15
+script = ExtResource("1_nlo8t")
+stats = SubResource("Resource_nlo8t")
+camera_controller = NodePath("CameraController/SpringArm3D")
+cam = NodePath("CameraController/SpringArm3D/Camera3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_hiuoe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("CapsuleMesh_ded6v")
+
+[node name="CameraController" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23881, 1.82023, -1.87056e-07)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraController"]
+spring_length = 2.5
+
+[node name="Camera3D" type="Camera3D" parent="CameraController/SpringArm3D"]
+script = ExtResource("3_8ajbe")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Crosshair" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+mouse_filter = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="HUD/Crosshair"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ryn1q")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="HUD"]
+offset_left = 17.0
+offset_top = 22.0
+offset_right = 57.0
+offset_bottom = 62.0
+scale = Vector2(4.36, 1.52)
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ajbe")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="HUD/Panel"]
+layout_mode = 0
+offset_left = -0.458716
+offset_top = 2.63158
+offset_right = 63.5413
+offset_bottom = 66.6316
+scale = Vector2(0.209362, 0.552632)
+texture = ExtResource("4_eubj8")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="HUD/Panel"]
+layout_mode = 0
+offset_left = 13.5321
+offset_top = 3.94737
+offset_right = 41.5321
+offset_bottom = 31.9474
+scale = Vector2(0.889908, 1.23684)
+text = "##"
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel2" type="Panel" parent="HUD"]
+offset_left = 17.0
+offset_top = 100.0
+offset_right = 57.0
+offset_bottom = 140.0
+scale = Vector2(11.32, 1.52)
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ajbe")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="HUD/Panel2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.328833
+anchor_top = -0.0328947
+anchor_right = -0.328833
+anchor_bottom = -0.0328947
+offset_left = 13.5067
+offset_top = 3.94737
+offset_right = 41.5067
+offset_bottom = 31.9474
+scale = Vector2(0.167395, 1.23684)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.50956e-07, 0.976302, -0.999733)
+shape = SubResource("SphereShape3D_eubj8")
